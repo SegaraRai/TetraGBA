@@ -8,7 +8,7 @@
 #include <cstring>
 
 
-const char binary_header[] __attribute__((section("._binary_header"))) __attribute__((used)) = "\0\0\0\0\0\0\0\0\0\0\0\0################TETRA GBA   v1.0    BY SegaraRai################";
+const char binary_header[] __attribute__((section("._binary_header"))) __attribute__((used)) = "\0\0\0\0\0\0\0\0\0\0\0\0################TETRA GBA   v1.1    BY SegaraRai################";
 
 
 int main() {
