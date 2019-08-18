@@ -1,13 +1,13 @@
 id,x,y,w,h,palette,dest_size,palette_mode,tile_mode
 
-# Padding
+# Padding,,,,,,,,
 ,0,0,1,1,0,same,normal,renew
 
 Active,1,0,1,1,0,same,renew,renew
 Stacked,2,0,1,1,0,same,renew,renew
 Ghost,0,1,16,2,0,same,renew_object,renew
 
-# Minos for palette
+# Minos for palette,,,,,,,,
 ,0,3,1,1,1,same,renew,ignore
 ,0,4,1,1,1,same,renew,ignore
 ,0,5,1,1,1,same,renew,ignore
@@ -36,6 +36,6 @@ Ghost,0,1,16,2,0,same,renew_object,renew
 ,6,4,1,1,7,same,renew,ignore
 ,6,5,1,1,7,same,renew,ignore
 
-#
+#,,,,,,,,
 
 HardDropEffect,17,0,1,8,0,same,normal,renew
