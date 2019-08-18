@@ -1,0 +1,38 @@
+﻿タイトル,ファイル名,元ファイル,制作,加工,備考
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+共通：カーソル移動,common_cursor.wav,Sys_Set01-sentaku.mp3,OtoLogic,,
+共通：項目変更,common_select.wav,Sys_Set01-click.mp3,OtoLogic,,
+共通：決定,common_decide.wav,Sys_Set03-pop up.mp3,OtoLogic,,
+,,,,,
+共通：隠しコマンド有効化,common_secret_enable.wav,Sys_Set02-sentaku.mp3,OtoLogic,,
+共通：隠しコマンド無効化,common_secret_disable.wav,Sys_Set02-sentaku.mp3,OtoLogic,,
+,,,,,
+,,,,,
+テトリス：回転,tetra_rotate.wav,Camera-Phone02-1.mp3,OtoLogic,0.205秒以降を切り出し,
+テトリス：回転できない,tetra_rotate_unavailable.wav,,,,使用しない
+テトリス：下移動,tetra_move_down.wav,独自,独自,,
+テトリス：左右移動,tetra_move_horizontal.wav,独自,独自,,
+テトリス：移動できない,tetra_move_unavailable.wav,,,,使用しない
+テトリス：ハードドロップ,tetra_harddrop.wav,ボタン音34.mp3,音人,"4000Hz, 24dB でハイパス、ピッチ+6半音",
+テトリス：固定,tetra_lock.wav,cursor4.mp3,効果音ラボ,"1400Hz, 12dB でハイパス",
+テトリス：着陸,tetra_land.wav,Camera-Compact01-14(Button).mp3,OtoLogic,"2音間の無音を0.08秒削除、1200Hz, 6dBでハイパス",初回以外でも鳴らす
+テトリス：ホールド,tetra_hold.wav,ボタン音47.mp3,音人,"1200Hz, 12dB でローパス、800Hz, 6dBでローパス",
+テトリス：ホールドできない,tetra_hold_unavailable.wav,,,,使用しない
+テトリス：REN,tetra_ren0～23.wav,,,テンポ2倍,使用しない
+テトリス：ライン消去後の落下,tetra_falldown.wav,メガホンで叩く02.mp3,音人,"400Hz, 6dB でローパス",
+テトリス：ライン消去シングル（1列）,tetra_lineclear_single.wav,,,,
+テトリス：ライン消去ダブル（2列）,tetra_lineclear_double.wav,,,,
+テトリス：ライン消去トリプル（3列）,tetra_lineclear_triple.wav,,,,
+テトリス：ライン消去テトリス（4列）,tetra_lineclear_tetris.wav,decision23.mp3,効果音ラボ,,
+テトリス：Tスピン,tetra_tspin.wav,decision9.mp3,効果音ラボ,"4000Hz, 12dB でローパス",
+テトリス：全消し,tetra_perfectclear.wav,decision24.mp3,効果音ラボ,"800Hz, 12dB でハイパス",
+テトリス：レベルアップ,tetra_levelup.wav,単発音・アタック43.mp3,音人,テンポ1.5倍,
+テトリス：Ready,tetra_ready.wav,Countdown06-5.mp3,OtoLogic,テンポ-10%,
+テトリス：Go!,tetra_go.wav,Countdown06-6.mp3,OtoLogic,テンポ+75%,

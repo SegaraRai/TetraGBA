@@ -1,0 +1,10 @@
+desktop.ini
+
+.vs/
+.vscode/
+
+node_modules/
+
+build/
+build-release/
+out/

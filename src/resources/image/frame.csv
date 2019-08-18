@@ -1,0 +1,3 @@
+id,x,y,w,h,palette,dest_size,palette_mode,tile_mode
+
+BGFrame,0,0,full,full,9,32x32,normal,normal

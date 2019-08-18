@@ -1,0 +1,6 @@
+id,x,y,w,h,palette,dest_size,palette_mode,tile_mode
+
+GameClear,0,0,16,3,10,same,normal,normal
+GameOver,0,3,16,3,10,same,normal,normal
+Ready,0,6,10,3,10,same,normal,normal
+Go,0,9,10,3,10,same,normal,normal

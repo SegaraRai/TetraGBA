@@ -1,0 +1,3 @@
+id,x,y,w,h,palette,dest_size,palette_mode,tile_mode
+
+Font,0,0,full,8,8,same,normal,renew
