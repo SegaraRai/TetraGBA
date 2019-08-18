@@ -5,8 +5,6 @@ set(TARGET_NAME final)
 project(${TARGET_NAME} NONE)
 
 set(ROOT /usr/local/gcc-arm-none-eabi-8-2019-q3-update)
-set(GCC_VERSION 8.3.1)
-set(LIBGCC_DIR ${ROOT}/lib/gcc/arm-none-eabi/${GCC_VERSION})
 set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
 set(APP_DIR ${SRC_DIR}/app)
 set(GBA_DIR ${SRC_DIR}/gba)
