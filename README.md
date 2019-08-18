@@ -87,9 +87,7 @@
 ### ビルド手順
 
 1. `src/resources/image/`ディレクトリと`src/resources/song/`ディレクトリにて`npm install`コマンドを実行する
-2. リポジトリのルートに`build/`ディレクトリを作成する
-3. `build/`ディレクトリにて`cmake ../src`コマンドを実行する
-4. `build/`ディレクトリにて`make -j`コマンドを実行する
+2. `build-release.sh`を実行する（作業ディレクトリはリポジトリのルート）
 
 シェルスクリプトで言えば以下の通り。
 
@@ -100,16 +98,12 @@ popd
 pushd src/resources/song
 npm install
 popd
-mkdir build
-pushd build
-cmake ../src
-make -j
-popd
+./build-release.sh
 ```
 
-`build/final.bin`にバイナリが出力されます。
+`build-release/final.bin`にバイナリが出力されます。
 
-また、`build/final.mb`にも同一のものが出力されます。  
+また、`build-release/final.mb`にも同一のものが出力されます。  
 こちらはエミュレータでの動作確認用に用いることができます。
 
 ## 使用素材、帰属表示
