@@ -4,6 +4,24 @@
 
 テトリスのような落ちものパズルのゲームです。
 
+## 実行方法
+
+実行にはビルド済みのバイナリ（`final.bin`や`final.mb`）が必要です。  
+後述する[ビルド方法](#ビルド方法)を参考にビルドを行うか、[Releases](https://github.com/SegaraRai/TetraGBA/releases)からビルド済みのバイナリを入手してください。
+
+### 実機で行う場合
+
+実験で配布された機材がある場合は、実機で実行できます。  
+計算機室のmacOSでoptusbを用いるか、あるいはWindowsでも[optusbx](https://github.com/SegaraRai/optusbx)で実機にプログラムを転送できます。  
+それらの詳しい使用方法については主専攻実験のマニュアルや、optusbxのウェブページを参照してください。  
+転送するプログラムは`final.bin`、`final.mb`のいずれでも大丈夫です（同一の内容です）。
+
+### エミュレータを用いる場合
+
+実機で実行できる環境にない場合は、エミュレータで実行できます。  
+ここでは、エミュレータに[Visual Boy Advance - M](https://github.com/visualboyadvance-m/visualboyadvance-m)を用います。  
+起動してキー設定を行った後`final.mb`を開くことで実行できます。
+
 ## 操作方法
 
 ### タイトル画面
