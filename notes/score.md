@@ -1,6 +1,6 @@
 # スコア計算式
 
-基本的には [https://harddrop.com/wiki/Scoring](Scoring - Hard Drop - Tetris Wiki)のGuideline scoring systemを使用する。
+基本的には[Scoring - Hard Drop - Tetris Wiki](https://harddrop.com/wiki/Scoring)のGuideline scoring systemを使用する。
 パーフェクトクリアについては以下に記載。
 
 ## パフェクリスコアボーナス
