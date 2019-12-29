@@ -4,6 +4,8 @@
 
 テトリスのような落ちものパズルのゲームです。
 
+![Gameplay](gameplay.gif)
+
 ## 実行方法
 
 実行にはビルド済みのバイナリ（`final.bin`や`final.mb`）が必要です。  
