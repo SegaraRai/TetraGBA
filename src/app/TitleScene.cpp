@@ -6,6 +6,7 @@
 #include "SceneManager.hpp"
 #include "Sound.hpp"
 #include "TilePrint.hpp"
+#include "Version.hpp"
 #include "Signal/KeyInputSignal.hpp"
 #include "Signal/OneShotSignalDecorator.hpp"
 #include "Signal/RepeatSignalDecorator.hpp"
@@ -20,6 +21,9 @@
 
 
 namespace Root {
+  const char VersionDisplay[] = "v" TETRA_VERSION;
+
+
   TitleScene::TitleScene(SceneManager& sceneManager) :
     Scene(sceneManager),
     mSelection(Item::NewGame)
@@ -51,6 +55,8 @@ namespace Root {
 
     PrintMenuLine("NEW GAME");
     PrintMenuLine("CONFIG");
+
+    TilePrint<Config::ScrBase::BG0Title>(VersionDisplay, gba::lcd::TileRealWidth - sizeof(VersionDisplay) - 1, gba::lcd::TileRealHeight - 2);
   }
 
 
