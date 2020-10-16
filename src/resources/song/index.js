@@ -566,12 +566,12 @@ class SongBuilder {
 
         case 'noteOn': {
           const volumeCh3 = [
-            [0, 0],   // 0%
-            [3, 0],   // 25%
-            [2, 0],   // 50%
-            [0, 1],   // 75%
-            [1, 0],   // 100%
-          ][Math.round(event.velocity / 127 * 4)];
+            [0, 0], // 0%
+            [3, 0], // 25%
+            [2, 0], // 50%
+            [0, 1], // 75%
+            [1, 0], // 100%
+          ][Math.round((event.velocity / channelSpec.maxVelocity) * 4)];
           const useLength = event.durationSecond <= SongBuilder.USE_LENGTH_THRESHOLD;
           const length64 = useLength ? Math.round(64 - event.durationSecond * 256) : null;
           const length256 = useLength ? Math.round(256 - event.durationSecond * 256) : null;
@@ -967,8 +967,10 @@ class SongBuilder {
   }
 }
 
+const bgmVolume = 1;
+
 SongBuilder.DEFAULT_PITCH = 0;
-SongBuilder.DEFAULT_MAX_VELOCITY = 127;
+SongBuilder.DEFAULT_MAX_VELOCITY = 127 / bgmVolume;
 SongBuilder.DEFAULT_DUTY = 2;
 SongBuilder.USE_LENGTH_THRESHOLD = 64 / 256;
 
