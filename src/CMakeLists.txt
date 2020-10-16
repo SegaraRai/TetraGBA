@@ -113,6 +113,7 @@ add_custom_command(TARGET ${TARGET_NAME}
   COMMAND ${ROOT}/bin/arm-none-eabi-objdump -D -b binary -marm "$<TARGET_FILE_NAME:${TARGET_NAME}>.bin" > "$<TARGET_FILE_NAME:${TARGET_NAME}>_dump.txt"
   COMMAND ${ROOT}/bin/arm-none-eabi-objcopy -S "$<TARGET_FILE_NAME:${TARGET_NAME}>" "$<TARGET_FILE_NAME:${TARGET_NAME}>.elf"
   COMMAND cp "$<TARGET_FILE_NAME:${TARGET_NAME}>.bin" "$<TARGET_FILE_NAME:${TARGET_NAME}>.mb"
+  COMMAND cp "$<TARGET_FILE_NAME:${TARGET_NAME}>.bin" "$<TARGET_FILE_NAME:${TARGET_NAME}>.gba"
   COMMAND du -bh "$<TARGET_FILE_NAME:${TARGET_NAME}>.bin"
   WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
 )
