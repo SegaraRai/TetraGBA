@@ -1,3 +1,3 @@
 #pragma once
 
-#define TETRA_VERSION "1.1"
+#define TETRA_VERSION "1.2"
