@@ -50,7 +50,7 @@ std::uint_fast16_t MusicManager::Read16LE() {
 
 MusicManager::MusicManager() :
   mPlaying(false),
-  mDividor(0),
+  mDivisor(0),
   mTickPerDiv(0),
   mCurrentTick(0),
   mNextTick(0),
@@ -84,14 +84,14 @@ void MusicManager::Play(const std::uint32_t* data) {
   const auto ptrBegin = reinterpret_cast<const std::uint8_t*>(data);
   mPtrCurrent = ptrBegin;
 
-  const auto dividor = Read16LE();
+  const auto divisor = Read16LE();
   const auto offsetToEnd = Read16LE();
   const auto offsetToLoopPoint = Read16LE();
   const auto numFrequencies = Read16LE();
   const auto numEnvelopes = Read16LE();
   const auto numChannel3Values = Read16LE();
 
-  mDividor = dividor;
+  mDivisor = divisor;
 
   mPtrEnd = ptrBegin + offsetToEnd;
   mPtrLoopPoint = ptrBegin + offsetToLoopPoint;
@@ -156,9 +156,9 @@ void MusicManager::Step() {
       case CommandId::BPM:
       {
         const auto bpm = Read16LE();
-        //mTickPerDiv = 60 /*sec. (1 min.)*/ * 60 /*Hz*/ / bpm / mDividor;
-        mTickPerDiv = (60 * 60 + (bpm * mDividor + 1) / 2) / (bpm * mDividor);
-        //DbgPrintf("BPM set: %d, %d, %d\n", bpm, mTickPerDiv, mDividor);
+        //mTickPerDiv = 60 /*sec. (1 min.)*/ * 60 /*Hz*/ / bpm / mDivisor;
+        mTickPerDiv = (60 * 60 + (bpm * mDivisor + 1) / 2) / (bpm * mDivisor);
+        //DbgPrintf("BPM set: %d, %d, %d\n", bpm, mTickPerDiv, mDivisor);
         break;
       }
 

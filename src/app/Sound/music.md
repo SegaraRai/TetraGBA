@@ -2,7 +2,7 @@
 
 ```cpp
 struct MusicData {
-  std::uint16_t dividor;
+  std::uint16_t divisor;
   std::uint16_t offsetToEnd;
   std::uint16_t offsetToLoopPoint;
   std::uint16_t numRates;             // 音階定義, 最大128
@@ -58,4 +58,4 @@ struct MusicData {
 
 ## Waitについて
 
-Waitで待つ時間は、`Wait`を指定された値、`SPB`を1拍あたりの秒数とすると`SPB * Wait / MusicData::dividor`秒。
+Waitで待つ時間は、`Wait`を指定された値、`SPB`を1拍あたりの秒数とすると`SPB * Wait / MusicData::divisor`秒。

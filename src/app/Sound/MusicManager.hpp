@@ -5,7 +5,7 @@
 
 class MusicManager {
   bool mPlaying;
-  unsigned int mDividor;
+  unsigned int mDivisor;
   unsigned int mTickPerDiv;
   unsigned int mCurrentTick;
   unsigned int mNextTick;
