@@ -78,13 +78,13 @@
 ### 必要なもの
 
 - Linux  
-  作者はWSL上のUbuntu 18.04を使用
-- [GNU Arm Embedded Toolchain Version 8-2019-q3-update](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads/8-2019q3-update)  
-  アーカイブを`/usr/local/gcc-arm-none-eabi-8-2019-q3-update/`以下に解凍する  
-  つまり`/usr/local/gcc-arm-none-eabi-8-2019-q3-update/`以下に`arm-none-eabi`、`bin`、`lib`、`share`ディレクトリが存在する形にする
+  作者はWSL2上のUbuntu 20.04を使用
+- [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)  
+  `gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2`をダウンロードし、アーカイブを`/usr/local/`以下に解凍する  
+  すると`/usr/local/gcc-arm-none-eabi-9-2020-q2-update/`以下に`arm-none-eabi`、`bin`、`lib`、`share`ディレクトリが存在する形になる
 - CMake 3.12 以降
 - FFmpeg なるべく新しいもの
-- Node.js 10.0.0 以降
+- Node.js 12.0.0 以降
 
 ### ビルド手順
 

@@ -4,7 +4,7 @@ set(TARGET_NAME final)
 
 project(${TARGET_NAME} NONE)
 
-set(ROOT /usr/local/gcc-arm-none-eabi-8-2019-q3-update)
+set(ROOT /usr/local/gcc-arm-none-eabi-9-2020-q2-update)
 set(SRC_DIR ${CMAKE_CURRENT_LIST_DIR})
 set(APP_DIR ${SRC_DIR}/app)
 set(GBA_DIR ${SRC_DIR}/gba)
