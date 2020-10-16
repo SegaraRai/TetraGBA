@@ -10,7 +10,7 @@ set(APP_DIR ${SRC_DIR}/app)
 set(GBA_DIR ${SRC_DIR}/gba)
 set(RES_DIR ${SRC_DIR}/resources)
 
-FILE(GLOB_RECURSE GBA_SOURCES ${GBA_DIR}/*.cpp)
+FILE(GLOB_RECURSE GBA_SOURCES ${GBA_DIR}/*.cpp ${GBA_DIR}/*.s)
 
 set(CMAKE_C_COMPILER   ${ROOT}/bin/arm-none-eabi-gcc)
 set(CMAKE_CXX_COMPILER ${ROOT}/bin/arm-none-eabi-g++)
@@ -33,6 +33,7 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE NEVER)
 set(LINKER_SCRIPT ${GBA_DIR}/gba.ls)
 
 
+enable_language(ASM)
 enable_language(C)
 enable_language(CXX)
 
