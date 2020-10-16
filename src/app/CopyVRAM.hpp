@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include <cstddef>
 #include <cstdint>
 
@@ -14,33 +15,33 @@ namespace CopyVRAMInternal {
     }
   }
 
-  template<typename T>
-  inline void Copy(std::uintptr_t destAddress, const T& src) {
+  template<typename T, std::size_t S>
+  inline void Copy(std::uintptr_t destAddress, const std::array<T, S>& src) {
     using u16 = std::uint16_t;
     using u32 = std::uint32_t;
-    using SV = typename T::value_type;
-    constexpr std::size_t SVSize = sizeof(SV);
 
-    static_assert(SVSize % sizeof(u16) == 0);
+    constexpr std::size_t TSize = sizeof(T);
 
-    if constexpr (SVSize < sizeof(u32) && SVSize * src.size() % sizeof(u32) == 0) {
-      Copy(reinterpret_cast<volatile u32*>(destAddress), reinterpret_cast<const u32*>(src.data()), src.size() * SVSize / sizeof(u32));
+    static_assert(TSize % sizeof(u16) == 0);
+
+    if constexpr (TSize < sizeof(u32) && TSize * S % sizeof(u32) == 0) {
+      Copy(reinterpret_cast<volatile u32*>(destAddress), reinterpret_cast<const u32*>(src.data()), S * TSize / sizeof(u32));
       return;
     }
 
-    Copy(reinterpret_cast<volatile SV*>(destAddress), src.data(), src.size());
+    Copy(reinterpret_cast<volatile T*>(destAddress), src.data(), S);
   }
 }
 
 
-template<std::uint_fast8_t CharacterBaseBlock, typename T>
-inline void BGCopyTile(const T& src) {
+template<std::uint_fast8_t CharacterBaseBlock, typename T, std::size_t S>
+inline void BGCopyTile(const std::array<T, S>& src) {
   CopyVRAMInternal::Copy(gba::memory::VRAM_BGTILE<CharacterBaseBlock>, src);
 }
 
 
-template<std::uint_fast8_t ScreenBaseBlock, typename T>
-inline void BGCopyMap(const T& src) {
+template<std::uint_fast8_t ScreenBaseBlock, typename T, std::size_t S>
+inline void BGCopyMap(const std::array<T, S>& src) {
   CopyVRAMInternal::Copy(gba::memory::VRAM_BGMAP<ScreenBaseBlock>, src);
 }
 
@@ -55,19 +56,19 @@ inline void BGClearMap() {
 }
 
 
-template<std::uint_fast8_t BeginIndex = 0, typename T>
-inline void BGCopyPalette(const T& src) {
+template<std::uint_fast8_t BeginIndex = 0, typename T, std::size_t S>
+inline void BGCopyPalette(const std::array<T, S>& src) {
   CopyVRAMInternal::Copy(gba::memory::PALETTE_BG + BeginIndex * 32, src);
 }
 
 
-template<bool Narrow = false, typename T>
-inline void OBJCopyTile(const T& src) {
+template<bool Narrow = false, typename T, std::size_t S>
+inline void OBJCopyTile(const std::array<T, S>& src) {
   CopyVRAMInternal::Copy(Narrow ? gba::memory::VRAM_OBJTILE16 : gba::memory::VRAM_OBJTILE32, src);
 }
 
 
-template<std::uint_fast8_t BeginIndex = 0, typename T>
-inline void OBJCopyPalette(const T& src) {
+template<std::uint_fast8_t BeginIndex = 0, typename T, std::size_t S>
+inline void OBJCopyPalette(const std::array<T, S>& src) {
   CopyVRAMInternal::Copy(gba::memory::PALETTE_OBJ + BeginIndex * 32, src);
 }
