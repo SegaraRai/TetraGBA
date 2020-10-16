@@ -605,6 +605,8 @@ namespace Tetra {
           GetBlockRef(Point2D{static_cast<int>(mBoardInfo.boardWidth - 1), static_cast<int>(y)}) = BlockType::Wall;
         }
 
+        const bool perfectClear = mBoardInfo.blockCount == 0;
+
         mLastLineClearInfo = LineClearInfo{
           numClearedLines,
           mRenLineCount + numClearedLines,
@@ -615,7 +617,7 @@ namespace Tetra {
             clearedLines[3],
           },
           tSpin,
-          mBoardInfo.blockCount == 0,
+          perfectClear,
           mRenCount,
           backToBack ? mBackToBackCount : 0,
           mBoardInfo.boardWidth,
@@ -645,6 +647,10 @@ namespace Tetra {
 
         // update statistics
         mGameStatistics.numClearedLines += numClearedLines;
+
+        if (perfectClear) {
+          mGameStatistics.numPerfectClears++;
+        }
       } else {
         if (tSpin != TSpin::None) {
           mBackToBackCount++;
