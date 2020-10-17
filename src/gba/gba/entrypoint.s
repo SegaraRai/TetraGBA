@@ -50,12 +50,14 @@ _copy_and_jump_to_ram_if_executing_rom:
 .thumb
   mov r0, pc
   lsl r0, #5          @ Are we running from ROM (0x8000000 or higher) ?
-  bcc .Return         @ No, so no need to do a copy.
+  bcs .JumpToRAM      @ Yes, so need to do a copy.
+  bx lr               @ No
 
 @-------------------------------------------------------------------------------
 @ We were started in ROM, silly emulators. :P
 @ So we need to copy to ExWRAM.
 @-------------------------------------------------------------------------------
+.JumpToRAM:
   mov r2, #2
   lsl r2, r2, #24     @ r2= 0x02000000
   ldr r3, = _end      @ last EWRAM address
@@ -66,25 +68,16 @@ _copy_and_jump_to_ram_if_executing_rom:
   add r6, r6, #0xF0   @ r6= ._entrypoint.ram
   bx r6               @ Jump to the code to execute
 
-.Return:
-  bx lr
-
 @-------------------------------------------------------------------------------
 @ Copy memory
 @-------------------------------------------------------------------------------
 @ r1 = Source Address
 @ r2 = Dest Address
-@ r3 = Length
+@ r3 = Length (must be multiple of 4)
 @-------------------------------------------------------------------------------
 CopyMem:
-  mov r0, #3          @ These commands are used in cases where
-  add r3, r0          @ the length is not a multiple of 4,
-  bic r3, r0          @ even though it should be.
-  beq .CIDExit        @ Length is zero so exit
-.CIDLoop:
   ldmia r1!, {r0}
   stmia r2!, {r0}
   sub r3, #4
-  bne .CIDLoop
-.CIDExit:
+  bne CopyMem
   bx lr
