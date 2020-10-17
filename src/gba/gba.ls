@@ -80,6 +80,11 @@ SECTIONS {
   _end = .;
   end = _end;
 
+  ._ram_padding : {
+    *(._ram_padding)
+    . = ALIGN(256);
+  } > WRAM
+
   .heap (NOLOAD) : {
     _heap_start = .;
     . = . + HEAP_SIZE;
