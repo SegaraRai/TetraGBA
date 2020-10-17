@@ -23,3 +23,7 @@ extern "C" __attribute__((target("arm"))) void _start_multiboot() {
 extern "C" __attribute__((target("arm"))) void _start_joybus() {
   _start();
 }
+
+extern "C" __attribute__((target("arm"))) void _start_ram() {
+  _start();
+}

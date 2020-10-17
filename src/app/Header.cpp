@@ -123,5 +123,5 @@ namespace MBHeader {
 
 //
 
-const auto binary_header __attribute__((section("._binary_header.rom"))) __attribute__((used)) = Header::Header;
+const auto binary_header_rom __attribute__((section("._binary_header.rom"))) __attribute__((used)) = Header::Header;
 const auto binary_header_multiboot __attribute__((section("._binary_header.multiboot"))) __attribute__((used)) = MBHeader::Header;

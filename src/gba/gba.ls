@@ -17,10 +17,15 @@ SECTIONS {
     KEEP(*(._binary_header.multiboot ._binary_header.multiboot* ._binary_header.multiboot.*))
     KEEP(*(._entrypoint.joybus ._entrypoint.joybus* ._entrypoint.joybus.*))
 
+    . = ALIGN(16);
+    KEEP(*(._entrypoint.ram ._entrypoint.ram* ._entrypoint.ram.*))
+    . = ALIGN(16);
+
     *(.text._entrypoint)
     *(.text._start_rom)
     *(.text._start_multiboot)
     *(.text._start_joybus)
+    *(.text._start_ram)
     *(.text._start)
 
     *(.text)

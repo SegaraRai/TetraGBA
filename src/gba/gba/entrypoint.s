@@ -7,6 +7,9 @@
 .section ._entrypoint.joybus
   b _wrap_start_joybus
 
+.section ._entrypoint.ram
+  b _wrap_start_ram
+
 @-------------------------------------------------------------------------------
 @-------------------------------------------------------------------------------
 
@@ -24,16 +27,19 @@ _wrap_start_joybus:
   bl _copy_and_jump_to_ram_if_executing_rom
   b _start_joybus
 
+_wrap_start_ram:
+  b _start_ram
+
 @-------------------------------------------------------------------------------
 @-------------------------------------------------------------------------------
 
 _copy_and_jump_to_ram_if_executing_rom:
 
-@@@@----------------------------------------------------------------------------
-@@@@ Codes below are obtained from devkitPro
-@@@@ https://github.com/devkitPro/devkitarm-crtls/blob/master/gba_crt0.s
-@@@@ Licensed under the Mozilla Public License Version 2.0 : https://mozilla.org/MPL/2.0/
-@@@@----------------------------------------------------------------------------
+@@------------------------------------------------------------------------------
+@@ Codes below are obtained from devkitPro
+@@ https://github.com/devkitPro/devkitarm-crtls/blob/master/gba_crt0.s
+@@ Licensed under the Mozilla Public License Version 2.0 : https://mozilla.org/MPL/2.0/
+@@------------------------------------------------------------------------------
 
 @-------------------------------------------------------------------------------
 @ Enter Thumb mode
@@ -57,6 +63,7 @@ _copy_and_jump_to_ram_if_executing_rom:
   mov r6, r2          @ r6= 0x02000000
   lsl r1, r2, #2      @ r1= 0x08000000
   bl CopyMem
+  add r6, r6, #0xF0   @ r6= ._entrypoint.ram
   bx r6               @ Jump to the code to execute
 
 .Return:
