@@ -58,7 +58,12 @@ class SoundBuilder {
 
       const buffer = Buffer.concat([header, pcm, Buffer.alloc((16 - pcm.length % 16) % 16, 0)]);
 
-      let str = `#include <cstdint>\n\n\nnamespace Sound {\n  std::uint32_t ${varName}[${buffer.length / 4}] = {\n    `;
+      let str = `
+#include <cstdint>
+
+namespace Sound {
+  extern const std::uint32_t ${varName}[${buffer.length / 4}] = {
+`.trim() + '\n    ';
       for (let i = 0; i < buffer.length / 4; i++) {
         str += '0x' + ('0000000' + buffer.readUInt32LE(i * 4).toString(16).toUpperCase()).substr(-8);
         str += i % 16 == 15 ? ',\n    ' : ', ';

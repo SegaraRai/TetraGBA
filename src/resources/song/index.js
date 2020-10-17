@@ -953,7 +953,12 @@ class SongBuilder {
 
     this.binaryBuffer = Buffer.from(this.binary);
 
-    let str = `#include <cstdint>\n\n\nnamespace Song {\n  std::uint32_t ${this.varName}[${this.binaryBuffer.length / 4}] = {\n    `;
+    let str = `
+#include <cstdint>
+
+namespace Song {
+  extern const std::uint32_t ${this.varName}[${this.binaryBuffer.length / 4}] = {
+`.trim() + '\n    ';
     for (let i = 0; i < this.binaryBuffer.length / 4; i++) {
       str += '0x' + ('0000000' + this.binaryBuffer.readUInt32LE(i * 4).toString(16).toUpperCase()).substr(-8);
       str += i % 16 == 15 ? ',\n    ' : ', ';

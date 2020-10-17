@@ -4,8 +4,8 @@
 
 
 namespace Song {
-  extern std::uint32_t gameover[];
-  extern std::uint32_t gonggyeokjeonida[];
-  extern std::uint32_t kimamanatenshitachi[];
-  extern std::uint32_t tetrisa2[];
+  extern const std::uint32_t gameover[];
+  extern const std::uint32_t gonggyeokjeonida[];
+  extern const std::uint32_t kimamanatenshitachi[];
+  extern const std::uint32_t tetrisa2[];
 }
